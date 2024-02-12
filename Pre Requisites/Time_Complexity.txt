@@ -1,0 +1,21 @@
+How the efficiency of an algorithm or operation scales with the size of the input data. 
+It measures how the execution time of an algorithm grows as the input size increases.
+
+CONSTANT TIME (O(1))
+: finding an item will take the same amount of time , regardless of the list size.
+
+LINEAR TIME (O(n))
+: finding an item takes time proportional to the size of the list. bigger the list, more time needed.
+
+QUADRATIC TIME (O(n^2))
+: finding the item takes time proportional to the square of the size of the input.
+
+LOGARITHMIC TIME (O(log n))
+: finding an item takes time that changes logarithmically with the size of the input. for eg, using
+  binary search to find an item in a sorted list. with each step we eliminate half the possibilities, 
+  making the search more efficient.
+
+LINEARITHMIC TIME (O(nlogn))
+: two words -  linear and logarithmic. former indicates the running time increases linearly with size 
+  of input and latter indicates that it increases logarithmically. more efficient because it grows slower 
+  with increase in input size. 
