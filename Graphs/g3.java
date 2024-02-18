@@ -1,7 +1,8 @@
-//Bfs algorithm
+//DFS algorithm
+
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class g2 {
     private int vertices;
@@ -20,23 +21,25 @@ public class g2 {
         adjacencyList[destination].add(source); // Uncomment this line if the graph is undirected
     }
 
-    public void bfs(int startVertex) {
+    public void dfs(int startVertex) {
         boolean[] visited = new boolean[vertices];
-        Queue<Integer> queue = new LinkedList<>();
+        Stack<Integer> stack = new Stack<>();
 
-        visited[startVertex] = true;
-        queue.add(startVertex);
+        stack.push(startVertex);
 
-        System.out.println("Breadth-First Search starting from vertex " + startVertex + ":");
+        System.out.println("Depth-First Search starting from vertex " + startVertex + ":");
 
-        while (!queue.isEmpty()) {
-            int currentVertex = queue.poll();
-            System.out.print(currentVertex + " ");
+        while (!stack.isEmpty()) {
+            int currentVertex = stack.pop();
+
+            if (!visited[currentVertex]) {
+                System.out.print(currentVertex + " ");
+                visited[currentVertex] = true;
+            }
 
             for (int neighbor : adjacencyList[currentVertex]) {
                 if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    queue.add(neighbor);
+                    stack.push(neighbor);
                 }
             }
         }
@@ -66,10 +69,10 @@ public class g2 {
             graph.addEdge(source, destination);
         }
 
-        System.out.print("Enter the starting vertex for BFS: ");
+        System.out.print("Enter the starting vertex for DFS: ");
         int startVertex = scanner.nextInt();
 
-        graph.bfs(startVertex);
+        graph.dfs(startVertex);
 
         scanner.close();
     }
